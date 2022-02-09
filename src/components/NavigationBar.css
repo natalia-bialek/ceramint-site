@@ -1,0 +1,19 @@
+.logo {
+  width: 100px;
+  padding: 2px;
+  margin-left: 6%;
+}
+
+.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
+
+.navbar-toggler {
+  margin-right: 6%;
+}
