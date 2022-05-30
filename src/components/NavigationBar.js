@@ -1,7 +1,9 @@
-import { useState} from "react"
-import { Navbar, NavDropdown, Dropdown, Nav } from "react-bootstrap";
 import "./NavigationBar.css";
+import { useState } from "react";
+import { Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 
 const links = [
   {
@@ -9,17 +11,17 @@ const links = [
     path: "/",
   },
   {
-    name: "O szkole",
-    path: "/o-szkole",
+    name: "Warsztaty",
+    path: "/warsztaty",
+  },
+  {
+    name: "Projekty",
+    path: "/projekty",
+  },
+  {
+    name: "Informacje",
+    path: "/informacje",
     subpages: [
-      {
-        name: "Statut",
-        path: "/statut",
-      },
-      {
-        name: "Program szkoły",
-        path: "/program-szkoly",
-      },
       {
         name: "Pytania i odpowiedzi",
         path: "/faq",
@@ -35,64 +37,8 @@ const links = [
     ],
   },
   {
-    name: "Program Nauczania",
-    path: "/program-nauczania",
-    subpages: [
-      {
-        name: "Terminy zjazdów na rok 2021/2022",
-        path: "/plan-zajec",
-      },
-      {
-        name: "Tematy zjazdów na rok 2021/2022",
-        path: "/tematy-zjazdow",
-      },
-    ],
-  },
-  {
-    name: "Warsztaty ceramiki",
-    path: "/warsztaty-ceramiki",
-    subpages: [
-      {
-        name: "Kursy ceramiki online",
-        path: "/kursy-ceramiki-online",
-      },
-      {
-        name: "KRONIKA CERAMIKA – Rozdział I – Lepienie i szkliwienie",
-        path: "/lepienie-i-szkliwienie",
-      },
-      {
-        name: "MOJA MAŁA MANUFAKTURA – Odlewanie z mas lejnych",
-        path: "/odlewanie-z-mas-lejnych",
-      },
-      {
-        name: "POMALUJ SWÓJ ŚWIAT – techniki zdobienia",
-        path: "/techniki-zdobienia",
-      },
-      {
-        name: "WKRĘĆ SIĘ – Warsztaty toczenia na kole garncarskim I stopnia",
-        path: "/warsztaty-toczenia-na-kole-garncarskim-i-stopnia",
-      },
-      {
-        name: "ODKRYJ BIAŁE ZŁOTO – Warsztaty porcelany",
-        path: "/warsztaty-porcelany",
-      },
-      {
-        name: "Warsztaty Formierskie I stopnia",
-        path: "/warsztaty-formerskie-i-stopnia",
-      },
-      {
-        name: "Szkolenie z obsługi pieca elektrycznego do wypału",
-        path: "/szkolenie-z-obslugi-pieca-elektrycznego-do-wypalu",
-      },
-    ],
-  },
-  {
-    name: "Rekrutacja",
-    path: "/rekrutacja",
-  },
-  {
-    name: "Pracownia",
-    path: "/pracownia",
+    name: "Sklep",
+    path: "/sklep",
   },
   {
     name: "Kontakt",
@@ -105,49 +51,56 @@ function NavBarItem({ item }) {
   const showDropdown = (e) => {
     setShow(!show);
   };
-  const hideDropdown = (e) => {
-    setShow(false);
-  };
 
+  // if link has subpages (is dropdown link)
   if (item.subpages?.length) {
     return (
       <NavDropdown
         title={item.name}
         show={show}
-        onMouseEnter={showDropdown}
-        onMouseLeave={hideDropdown}
+        onClick={showDropdown}
         id="nav-dropdown"
+        className="navbar__link"
       >
         {item.subpages.map((subpage) => (
-          <NavDropdown.Item
-            eventKey=""
-            key={subpage.name}
-            href={item.path + subpage.path}
-          >
-            {subpage.name}
-          </NavDropdown.Item>
+          <LinkContainer to={item.path + subpage.path}>
+            <NavDropdown.Item eventKey={item.subpages.indexOf(subpage)} key={subpage.path}>
+              {subpage.name}
+            </NavDropdown.Item>
+          </LinkContainer>
         ))}
       </NavDropdown>
     );
   }
 
-  //default case
+  //default link
   return (
-    <Nav.Link className="navbar__link" href={item.path} key={item.name}>
-      {item.name}
-    </Nav.Link>
+    <LinkContainer to={item.path}>
+      <Nav.Link key={item.path} className="navbar__link">
+        {item.name}
+      </Nav.Link>
+    </LinkContainer>
   );
 }
 
 export default function NavigationBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" sticky="top" fixed="top">
-      <img src={logo} className="logo" />
+    <Navbar collapseOnSelect expand="md">
+      <Navbar.Brand as={Link} to="/" className="logo">
+        <img
+          src={logo}
+          alt="Logo"
+        />
+      </Navbar.Brand>
+
       <Navbar.Toggle aira-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="navigation" fill>
+      <Navbar.Collapse
+        id="responsive-navbar-nav"
+        className="justify-content-center"
+      >
+        <Nav className="navigation">
           {links.map((link) => (
-            <NavBarItem item={link} />
+            <NavBarItem key={link.path} item={link} />
           ))}
         </Nav>
       </Navbar.Collapse>
