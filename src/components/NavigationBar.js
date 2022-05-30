@@ -64,7 +64,7 @@ function NavBarItem({ item }) {
       >
         {item.subpages.map((subpage) => (
           <LinkContainer to={item.path + subpage.path}>
-            <NavDropdown.Item eventKey={item.subpages.indexOf(subpage)} key={subpage.name}>
+            <NavDropdown.Item eventKey={item.subpages.indexOf(subpage)} key={subpage.path}>
               {subpage.name}
             </NavDropdown.Item>
           </LinkContainer>
@@ -76,7 +76,7 @@ function NavBarItem({ item }) {
   //default link
   return (
     <LinkContainer to={item.path}>
-      <Nav.Link key={item.name} className="navbar__link">
+      <Nav.Link key={item.path} className="navbar__link">
         {item.name}
       </Nav.Link>
     </LinkContainer>
@@ -100,7 +100,7 @@ export default function NavigationBar() {
       >
         <Nav className="navigation">
           {links.map((link) => (
-            <NavBarItem item={link} />
+            <NavBarItem key={link.path} item={link} />
           ))}
         </Nav>
       </Navbar.Collapse>
