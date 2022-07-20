@@ -1,5 +1,5 @@
 import "./ImageText.css";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonPrimary from "../ButtonPrimary/ButtonPrimary.js";
 
 export default function ImageText(props) {
   let classes = "ImageText__container";
@@ -9,7 +9,7 @@ export default function ImageText(props) {
 
   return (
     <div className={classes}>
-      <img className="ImageText__image" src={props.image} />
+      <img className="ImageText__image" src={props.image} alt="" />
       <div className="ImageText__body">
         <h4 className="ImageText__header text--uppercase text--bold">
           {props.header}

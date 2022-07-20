@@ -1,12 +1,12 @@
-import Page from "../components/Page";
-import ImageText from "../components/ImageText";
+import Page from "../components/Page/Page.js";
+import ImageText from "../components/ImageText/ImageText.js";
 
 export default function Warsztaty() {
   return (
     <Page title="Warsztaty">
       <ImageText
         image="https://pixabay.com/get/g9008e7e9ee04dadfce22462ad570bb5dddefe1d0fca84c67645c17d9e0dfa4163d034a5ade7718f8cd87051f49cc0d2ba61de2a8509591ae1011d7730c92038f63df35d4217570dcf1ae2f53473f908f_640.jpg"
-        header="Warsztaty dla dorosłych"
+        header="Kurs dla dorosłych"
         isCyclically="true"
         text="Commodo reprehenderit exercitation exercitation occaecat ipsum officia
         fugiat aliqua. Sunt labore veniam laborum officia. Velit aute ut nisi
@@ -19,6 +19,7 @@ export default function Warsztaty() {
         button="Zapisz się teraz!"
         buttonLink="/kontakt"
       />
+      <hr />
       <ImageText
         isReverse="true"
         image="https://pixabay.com/get/g92209d5c1bc50c469bb2d8b2f549487297789e7f74d6653a968275e1ad90e9d567a882b57d5a8a98e49df7686e6decb0a919811be707705ea7ac51c446cb4d9cdbc6a97543d9ea556f921fff7b1f7eec_640.jpg"
@@ -31,6 +32,7 @@ export default function Warsztaty() {
           'Koszt udziału': '50zł od osoby'
         }}
       />
+
     </Page>
   );
 }

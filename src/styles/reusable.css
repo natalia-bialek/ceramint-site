@@ -1,0 +1,29 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  max-width: 400px;
+  margin: auto auto;
+  padding: 20px;
+}
+
+input,
+textarea {
+  margin-bottom: 0.5rem;
+  border: none;
+}
+
+textarea {
+  resize: none;
+  height: 150px;
+}
+
+.button--submit {
+  border: none;
+  background-color: #afafaf;
+}
+
+.button--submit:active {
+  box-shadow: inset 1px 1px 10px #8a8a8a;
+}

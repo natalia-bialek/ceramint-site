@@ -6,5 +6,14 @@ export default function Page(props) {
     document.title = props.title + " | Ceramint" || "";
   }, [props.title]);
 
-  return <div className="page__content">{props.children}</div>;
+  return (
+    <>
+      <div className="page__title">
+        <h1>{props.title}</h1>
+      </div>
+      <div className="page__content">
+        {props.children}
+      </div>
+    </>
+  )
 }
