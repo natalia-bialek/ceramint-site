@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f4f4f4;
@@ -15,34 +15,54 @@ p {
   text-transform: uppercase;
 }
 
-.text--bold{
+.text--bold {
   font-weight: bold;
 }
 
-a {
-  color: #33EEBB;
+.text--error {
+  color: red;
 }
 
-@media screen and (min-width:425px) {
+a {
+  color: #33eebb;
+}
+
+hr {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.two-columns-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 425px) {
   body {
-      font-size: 14px !important;
+    font-size: 14px !important;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .two-columns-layout {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .two-columns-layout div {
+    width: 50%;
+    margin: 0 1rem;
+  }
+}
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   body {
-      font-size: 16px !important;
+    font-size: 16px !important;
   }
 }
 
 .max {
-  color: #33EEBB mint
-  #202020 szarny ciemny
-  #474747 ciemniejszy
-  #f4f4f4 jasny bez
-  #486590 blue pastel
-  #BBAFE0 lavenda
-  #0E5D40 ceimny zielony
+  color: #33eebb mint #202020 szarny ciemny #474747 ciemniejszy #f4f4f4 jasny
+    bez #486590 blue pastel #bbafe0 lavenda #0e5d40 ceimny zielony;
 }

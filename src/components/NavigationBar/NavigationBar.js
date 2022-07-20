@@ -2,10 +2,10 @@ import "./NavigationBar.css";
 import { useState } from "react";
 import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 
-const links = [
+const LINKS_DATA = [
   {
     name: "Aktualności",
     path: "/",
@@ -15,20 +15,12 @@ const links = [
     path: "/warsztaty",
   },
   {
-    name: "Projekty",
-    path: "/projekty",
-  },
-  {
     name: "Informacje",
     path: "/informacje",
     subpages: [
       {
         name: "Pytania i odpowiedzi",
         path: "/faq",
-      },
-      {
-        name: "Współpraca",
-        path: "/wspolpraca",
       },
       {
         name: "Polityka prywatności",
@@ -99,7 +91,7 @@ export default function NavigationBar() {
         className="justify-content-center"
       >
         <Nav className="navigation">
-          {links.map((link) => (
+          {LINKS_DATA.map((link) => (
             <NavBarItem key={link.path} item={link} />
           ))}
         </Nav>

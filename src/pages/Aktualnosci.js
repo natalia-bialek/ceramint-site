@@ -1,20 +1,21 @@
-import News from "../components/News";
-import Page from "../components/Page";
+import News from "../components/News/News.js";
+import Page from "../components/Page/Page.js";
 
-const newsList = [
+const NEWS_DATA = [
   {
     data: "8.03.2022",
     title: "Ulep sobie kubek",
-    text: `15 marca zapraszamy na zajęcia warsztatowe z lepienia kubków.{\n}
-    Odbędą się w godzinach 10:30-12:00. Prosimy o rejestrację za pomocą maila (zakładka 'Kontakt').
+    text: `15 marca zapraszamy na zajęcia warsztatowe z lepienia kubków. Odbędą się w godzinach 10:30-12:00. Prosimy o rejestrację za pomocą maila (zakładka 'Kontakt').
     Wstęp wolny. Ilość miejsc ograniczona!`,
-    image: "https://pixabay.com/get/ga0f4a3b5a7bc10b04bf0e6ae29d2a2c4b582a3c4e45a95a61650d06a95cb4c5eee67cc63c53c157708ea26f77383fea464b0edc4e622105bab81e1864d8e73de85b421711add49bf53480e40d13742f2_640.jpg", 
+    image: "",
+    imageAltText: "",
   },
   {
     data: "b",
     title: "b",
     text: "b",
-    image: "b",
+    image: "",
+    imageAltText: "",
   },
 ];
 
@@ -22,12 +23,13 @@ export default function Aktualnosci(props) {
   return (
     <>
       <Page title="Aktualności">
-        {newsList.map((item) => (
+        {NEWS_DATA.map((item) => (
           <News
             data={item.data}
             title={item.title}
             text={item.text}
-            image={item.image} >
+            image={item.image}
+            key={item.data}>
           </News>
         ))}
       </Page>

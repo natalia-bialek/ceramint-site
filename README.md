@@ -69,9 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-
-breakpoints: 
+breakpoints:
 
 475px
 600px
@@ -82,22 +80,24 @@ mint
 33EEBB JASNIEJSZY
 
 szarny ciemny
-#202020 
+#202020
 
 ciemniejszy
-#474747 
+#474747
 
 jasny bez
 #f4f4f4
 
 blue pastel
-#486590 
+#486590
 
 lavenda
-#BBAFE0 
+#BBAFE0
 
 ceimny zielony
-#0E5D40 
+#0E5D40
 
 ciemniejszy fafafa
 #e4e4e4
+
+formik, yup, emailjs,

@@ -1,5 +1,5 @@
-import "./Error.css";
-import Page from "../components/Page";
+import Error404 from "../components/Error404/Error404.js";
+import Page from "../components/Page/Page.js";
 
 export default function Error() {
   return (
