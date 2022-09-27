@@ -1,68 +1,40 @@
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f4f4;
-  font-size: 12px;
-}
 
-p {
-  margin: 0;
-}
-
-.text--uppercase {
-  text-transform: uppercase;
-}
-
-.text--bold {
-  font-weight: bold;
-}
-
-.text--error {
-  color: red;
-}
-
-a {
-  color: #33eebb;
-}
-
-hr {
-  width: 80%;
-  margin: 1rem auto;
-}
-
-.two-columns-layout {
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 425px) {
-  body {
-    font-size: 14px !important;
+  
+  
+  .layout--two-columns {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
   }
-}
-
-@media screen and (min-width: 768px) {
-  .two-columns-layout {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  
+  .layout--two-columns > div{
+    position: relative;
+    margin: auto;
+    width: 100%;
   }
 
-  .two-columns-layout div {
-    width: 50%;
-    margin: 0 1rem;
+  
+  @media screen and (min-width: 768px) {
+  
+    .layout--two-columns {
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: auto;
+    }
+  
+    .layout--two-columns > div {
+      width: 50%;
+      margin: 0 1rem;
+    }
+  
+  
+    .layout--two-columns button {
+      bottom: 0;
+    }
   }
-}
+  
 
-@media screen and (min-width: 1024px) {
-  body {
-    font-size: 16px !important;
-  }
-}
-
-.max {
-  color: #33eebb mint #202020 szarny ciemny #474747 ciemniejszy #f4f4f4 jasny
-    bez #486590 blue pastel #bbafe0 lavenda #0e5d40 ceimny zielony;
-}
+  

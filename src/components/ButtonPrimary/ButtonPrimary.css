@@ -1,18 +1,7 @@
 .button--primary {
-    display: block;
-    width: fit-content;
     background-color: #202020;
     color: #f4f4f4;
     outline: none;
-    text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 74px;
-    -webkit-border-radius: 74px;
-    -moz-border-radius: 74px;
-    -ms-border-radius: 74px;
-    -o-border-radius: 74px;
-    font-family: 'Raleway', sans-serif;
-    letter-spacing: 0.075rem;
     border: none;
     transition: background-color 200ms ease-in-out;
     -webkit-transition: background-color 200ms ease-in-out;

@@ -1,9 +1,7 @@
 import "./NavigationBar.css";
 import { useState } from "react";
-import { Navbar, NavDropdown, Nav } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
+import { GoTriangleDown } from "react-icons/go";
 
 const LINKS_DATA = [
   {
@@ -15,22 +13,8 @@ const LINKS_DATA = [
     path: "/warsztaty",
   },
   {
-    name: "Informacje",
-    path: "/informacje",
-    subpages: [
-      {
-        name: "Pytania i odpowiedzi",
-        path: "/faq",
-      },
-      {
-        name: "Polityka prywatności",
-        path: "/polityka-prywatnosci",
-      },
-    ],
-  },
-  {
     name: "Sklep",
-    path: "/sklep",
+    path: "https://ceramintshopmaster.gatsbyjs.io/",
   },
   {
     name: "Kontakt",
@@ -40,62 +24,68 @@ const LINKS_DATA = [
 
 function NavBarItem({ item }) {
   const [show, setShow] = useState(false);
-  const showDropdown = (e) => {
-    setShow(!show);
-  };
 
   // if link has subpages (is dropdown link)
-  if (item.subpages?.length) {
-    return (
-      <NavDropdown
-        title={item.name}
-        show={show}
-        onClick={showDropdown}
-        id="nav-dropdown"
-        className="navbar__link"
-      >
-        {item.subpages.map((subpage) => (
-          <LinkContainer to={item.path + subpage.path}>
-            <NavDropdown.Item eventKey={item.subpages.indexOf(subpage)} key={subpage.path}>
-              {subpage.name}
-            </NavDropdown.Item>
-          </LinkContainer>
-        ))}
-      </NavDropdown>
-    );
-  }
+  // if (item.subpages?.length) {
+  //   return (
+  //     <p
+  //       onMouseOver={() => setShow(true)}
+  //       onMouseOut={() => setShow(false)}
+  //       className="nav__link text--uppercase dropdown"
+  //     >
+  //       <span>
+  //         {item.name}&nbsp;
+  //         <GoTriangleDown />
+  //       </span>
+  //       <div className={"dropdown__content " + `${show ? "opened" : ""}`}>
+  //         {item.subpages.map((subpage) => (
+  //           <a
+  //             eventKey={item.subpages.indexOf(subpage)}
+  //             key={subpage.path}
+  //             href={item.path + subpage.path}
+  //             className="nav__link"
+  //           >
+  //             {subpage.name}
+  //           </a>
+  //         ))}
+  //       </div>
+  //     </p>
+  //   );
+  // }
 
   //default link
   return (
-    <LinkContainer to={item.path}>
-      <Nav.Link key={item.path} className="navbar__link">
-        {item.name}
-      </Nav.Link>
-    </LinkContainer>
+    <a href={item.path} key={item.path} className="nav__link text--uppercase">
+      {item.name}
+    </a>
   );
 }
 
 export default function NavigationBar() {
+  const [isOpen, setOpen] = useState(false);
+  console.log(isOpen);
   return (
-    <Navbar collapseOnSelect expand="md">
-      <Navbar.Brand as={Link} to="/" className="logo">
-        <img
-          src={logo}
-          alt="Logo"
-        />
-      </Navbar.Brand>
-
-      <Navbar.Toggle aira-controls="responsive-navbar-nav" />
-      <Navbar.Collapse
-        id="responsive-navbar-nav"
-        className="justify-content-center"
+    <nav>
+      <div className="nav__logo">
+        <a href="/">
+          <img src={logo} alt="Logo" />
+        </a>
+      </div>
+      <div
+        className="nav__toggler"
+        onClick={() => {
+          setOpen(!isOpen);
+        }}
       >
-        <Nav className="navigation">
-          {LINKS_DATA.map((link) => (
-            <NavBarItem key={link.path} item={link} />
-          ))}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div className={"nav__links " + `${isOpen ? "opened" : ""}`}>
+        {LINKS_DATA.map((link) => (
+          <NavBarItem key={link.path} item={link} />
+        ))}
+      </div>
+    </nav>
   );
 }

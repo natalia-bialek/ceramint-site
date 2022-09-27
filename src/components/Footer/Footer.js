@@ -27,8 +27,12 @@ export default function Footer() {
             <a className="footer__link" href="/kontakt">
               Kontakt
             </a>
-            <br/>
-            <a className="footer__link" href="/informacje/polityka-prywatnosci">
+            <br />
+            <a className="footer__link" href="/regulamin">
+              Regulamin
+            </a>
+            <br />
+            <a className="footer__link" href="/polityka-prywatnosci">
               Polityka prywatności
             </a>
           </div>

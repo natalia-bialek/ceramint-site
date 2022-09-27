@@ -1,13 +1,13 @@
 import "./ButtonPrimary.css";
-import { Link } from "react-router-dom";
 
 export default function ButtonPrimary(props) {
   return (
-    <Link
+    <a
       className="button--primary text--uppercase text--bold"
-      to={props.link}
+      href={props.link}
+      role="button"
     >
       {props.children}
-    </Link>
+    </a>
   );
 }

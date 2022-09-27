@@ -1,128 +1,120 @@
 import React, { useState, useRef } from "react";
-import { useFormik } from "formik";
+import { useFormik, Field, Form, ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
-import emailjs from 'emailjs-com'
-import "../../styles/reusable.css"
-
-
+import emailjs from "emailjs-com";
+import ButtonSecondary from "../ButtonSecondary/ButtonSecondary";
 
 const SignupForm = () => {
+  const [isSubmitted, setSubmitState] = useState(false);
+  const form = useRef();
 
-    const [isSubmitted, setSubmitState] = useState(false);
-    const form = useRef();
+  const REQUIRED_ERROR = "^ To pole jest wymagane";
+  const phoneRegExp = /^(?!\D)\d{9}$/;
 
-    // const sendEmail = (e) => {
-    //     e.preventDefault();
+  return (
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        classes: "",
+      }}
+      validationSchema={Yup.object({
+        firstName: Yup.string()
+          .max(30, "Maksymalna ilość znaków: 30")
+          .required(REQUIRED_ERROR),
+        lastName: Yup.string()
+          .max(30, "Maksymalna ilość znaków: 30")
+          .required(REQUIRED_ERROR),
+        email: Yup.string()
+          .email("Nieprawidłowy adres email")
+          .required(REQUIRED_ERROR),
+        phone: Yup.string()
+          .matches(phoneRegExp, "Poprawny format numeru telefonu to XXXXXXXXX")
+          .required(REQUIRED_ERROR),
+        classes: Yup.string()
+          .notOneOf(["", "--Wybierz warsztaty/kurs--"])
+          .required("Nieprawidłowa wartość"),
+      })}
+      onSubmit={(values) => {
+        console.log(values);
+        emailjs
+          .sendForm(
+            "service_5pfelmq",
+            "template_p4u310f",
+            "#signUpForm",
+            "2FV8qZ-KuF6GPNoP9"
+          )
+          .then(
+            (values) => {
+              setSubmitState(true);
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          );
+      }}
+    >
+      <Form id="signUpForm">
+        <label htmlFor="firstName">
+          Imię<span className="text--error"> *</span>
+        </label>
+        <Field name="firstName" type="text" placeholder="Jan" />
+        <ErrorMessage
+          name="firstName"
+          render={(msg) => <div className="text--error">{msg}</div>}
+        />
 
-    //     emailjs.sendForm("service_5pfelmq", "template_9ky2559", form.current, "2FV8qZ-KuF6GPNoP9")
-    //         .then((result) => {
-    //             setSubmitState(true);
-    //         }, (error) => {
-    //             console.log(error.text);
-    //         });
-    // };
+        <label htmlFor="lastName">
+          Nazwisko<span className="text--error"> *</span>
+        </label>
+        <Field name="lastName" type="text" placeholder="Kowalski" />
+        <ErrorMessage
+          name="lastName"
+          render={(msg) => <div className="text--error">{msg}</div>}
+        />
 
+        <label htmlFor="email">
+          Adres email<span className="text--error"> *</span>
+        </label>
+        <Field name="email" type="text" placeholder="jan.kowalski@email.com" />
+        <ErrorMessage
+          name="email"
+          render={(msg) => <div className="text--error">{msg}</div>}
+        />
 
-    // phone validation /^[0-9]{3}[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3}$k
+        <label htmlFor="phone">
+          Numer telefonu<span className="text--error"> *</span>
+        </label>
+        <Field name="phone" type="number" placeholder="123456789" />
+        <ErrorMessage
+          name="phone"
+          render={(msg) => <div className="text--error">{msg}</div>}
+        />
 
-    const formik = useFormik({
-        initialValues: {
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: 0,
-            classes: "",
-        },
-        validationSchema: Yup.object({
-            firstName: Yup.string()
-                .max(30, "Must be 20 characters or less")
-                .required("To pole jest wymagane"),
-            lastName: Yup.string()
-                .max(30, "Must be 20 characters or less")
-                .required("To pole jest wymagane"),
-            email: Yup.string()
-                .email("Nieprawidłowy adres email")
-                .required("To pole jest wymagane"),
-            phone: Yup
-                .number()
-                .required("To pole jest wymagane"),
-        }),
-        onSubmit: values => {
-            console.log(values);
-            // emailjs.sendForm("service_5pfelmq", "template_9ky2559", form.current, "2FV8qZ-KuF6GPNoP9")
-            //     .then((values) => {
-            //         alert(values);
-            //         setSubmitState(true);
-            //     }, (error) => {
-            //         console.log(error.text);
-            //     });
-        },
-    });
+        <label htmlFor="classes">
+          Zajęcia <span className="text--error">*</span>
+        </label>
+        <Field name="classes" as="select">
+          <option value="">--Wybierz warsztaty/kurs--</option>
+          <option value="Warsztaty 15.03.2022">Warsztaty 15.03.2022</option>
+          <option value="Kurs dla dorosłych (cykliczne)">
+            Kurs dla dorosłych (cykliczne)
+          </option>
+          <option value="Warsztaty dla dzieci 13-16.03.2022">
+            Warsztaty dla dzieci 13-16.03.2022
+          </option>
+        </Field>
+        <ErrorMessage
+          name="classes"
+          render={(msg) => <div className="text--error">{msg}</div>}
+        />
 
-    return (
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="firstName">Imię uczestnika <span className="text--error">*</span></label>
-            <input
-                id="firstName"
-                name="firstName"
-                type="text"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.firstName}
-            />
-            {formik.errors.firstName ? <div className="text--error">{formik.errors.firstName}</div> : null}
-
-            <label htmlFor="lastName">Nazwisko uczestnika <span className="text--error">*</span></label>
-            <input
-                id="lastName"
-                name="lastName"
-                type="text"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.lastName}
-            />
-            {formik.errors.lastName ? <div className="text--error">{formik.errors.lastName}</div> : null}
-
-            <label htmlFor="email">Adres email <span className="text--error">*</span></label>
-            <input
-                id="email"
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-            />
-            {formik.errors.email ? <div className="text--error">{formik.errors.email}</div> : null}
-
-            <label htmlFor="phone">Numer telefonu <span className="text--error">*</span></label>
-            <input
-                id="phone"
-                name="phone"
-                type="number"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.phone}
-            />
-            {formik.errors.phone ? <div className="text--error">{formik.errors.phone}</div> : null}
-
-            <label htmlFor="classes">Zajęcia <span className="text--error">*</span></label>
-            <select
-                id="classes"
-                name="classes"
-                value={formik.values.classes}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-            >
-                <option value="initial-value">--Wybierz warsztaty/kurs--</option>
-                <option value="warsztaty-15.03.2022">Warsztaty 15.03.2022</option>
-                <option value="kurs-dla-doroslych">Kurs dla dorosłych (cykliczne)</option>
-                <option value="warsztaty-dla-dzieci">Warsztaty dla dzieci 13-16.03.2022</option>
-            </select>
-            {formik.errors.classes ? <div className="text--error">{formik.errors.classes}</div> : null}
-
-            <button type="submit">Submit</button>
-        </form>
-    );
+        <ButtonSecondary type="submit">Zapisz się</ButtonSecondary>
+      </Form>
+    </Formik>
+  );
 };
 
 export default SignupForm;

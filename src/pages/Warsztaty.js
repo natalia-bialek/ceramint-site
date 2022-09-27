@@ -12,9 +12,9 @@ export default function Warsztaty() {
         fugiat aliqua. Sunt labore veniam laborum officia. Velit aute ut nisi
         aliqua sit Lorem cillum do aute."
         additionalInfo={{
-          'Maksymalny wiek uczestnika': '100 lat',
-          'Data wydarzenia': '12.04.2022',
-          'Koszt udziału': '100zł od osoby za 4 spotkania'
+          "Maksymalny wiek uczestnika": "100 lat",
+          "Data wydarzenia": "12.04.2022",
+          "Koszt udziału": "100zł od osoby za 4 spotkania",
         }}
         button="Zapisz się teraz!"
         buttonLink="/kontakt"
@@ -27,12 +27,11 @@ export default function Warsztaty() {
         text="Commodo reprehenderit exercitation exercitation occaecat ipsum officia
         follit in qui commodo minim consectetur occaecat cupidatat occaecat nostrud do nisi."
         additionalInfo={{
-          'Maksymalny wiek uczestnika': '10 lat',
-          'Data wydarzenia': '13.03.2022, 16.03.2022',
-          'Koszt udziału': '50zł od osoby'
+          "Maksymalny wiek uczestnika": "10 lat",
+          "Data wydarzenia": "13.03.2022, 16.03.2022",
+          "Koszt udziału": "50zł od osoby",
         }}
       />
-
     </Page>
   );
 }
