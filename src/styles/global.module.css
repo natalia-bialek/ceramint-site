@@ -1,0 +1,125 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:global(.button),
+a[role="button"] {
+  display: block;
+  width: fit-content;
+  transition: background-color 200ms ease-in-out;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 40px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.075rem;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+  font-size: 12px;
+}
+
+main {
+  max-width: 2000px;
+  -margin: auto;
+  flex-grow: 2;
+}
+
+p {
+  margin: 0;
+}
+
+div.text--error {
+  margin-bottom: 10px;
+}
+
+a {
+  color: inherit;
+}
+
+hr {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+main {
+  padding: 5px;
+}
+
+:global(.text--uppercase) {
+  text-transform: uppercase;
+}
+
+:global(.text--bold) {
+  font-weight: bold;
+}
+
+:global(.text--error) {
+  color: red;
+}
+
+:global(.layout--two-columns) {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 90%;
+}
+
+:global(.layout--two-columns > div) {
+  position: relative;
+  margin: auto;
+  width: 100%;
+}
+
+:global(.two-columns__header) {
+  text-align: center;
+}
+
+@media screen and (min-width: 425px) {
+  body {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    width: 90%;
+    margin: auto;
+  }
+
+  :global(.layout--two-columns) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  :global(.layout--two-columns > div) {
+    width: 50%;
+    margin: 0 1rem;
+    height: 100%;
+  }
+
+  :global(.layout--two-columns button) {
+    bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 16px !important;
+  }
+}

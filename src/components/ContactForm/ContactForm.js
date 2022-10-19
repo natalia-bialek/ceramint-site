@@ -46,7 +46,7 @@ const ContactForm = (props) => {
           );
       }}
     >
-      <Form id="contactForm">
+      <Form id="contactForm" className={props.className}>
         <label htmlFor="name">
           Imię<span className="text--error"> *</span>
         </label>

@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import emailjs from "emailjs-com";
 import ButtonSecondary from "../ButtonSecondary/ButtonSecondary";
 
-const SignupForm = () => {
+const SignupForm = (props) => {
   const [isSubmitted, setSubmitState] = useState(false);
   const form = useRef();
 
@@ -56,7 +56,7 @@ const SignupForm = () => {
           );
       }}
     >
-      <Form id="signUpForm">
+      <Form id="signUpForm" className={props.className}>
         <label htmlFor="firstName">
           Imię<span className="text--error"> *</span>
         </label>

@@ -1,29 +1,12 @@
-import "./NavigationBar.css";
+import styles from "./NavigationBar.module.css";
 import { useState } from "react";
 import logo from "../../images/logo.png";
-import { GoTriangleDown } from "react-icons/go";
-
-const LINKS_DATA = [
-  {
-    name: "Aktualności",
-    path: "/",
-  },
-  {
-    name: "Warsztaty",
-    path: "/warsztaty",
-  },
-  {
-    name: "Sklep",
-    path: "https://ceramintshopmaster.gatsbyjs.io/",
-  },
-  {
-    name: "Kontakt",
-    path: "/kontakt",
-  },
-];
+import LINKS_DATA from "../../mock/navigation-links.js";
+import classNames from "classnames";
+// import { GoTriangleDown } from "react-icons/go";
 
 function NavBarItem({ item }) {
-  const [show, setShow] = useState(false);
+  //const [show, setShow] = useState(false);
 
   // if link has subpages (is dropdown link)
   // if (item.subpages?.length) {
@@ -55,7 +38,7 @@ function NavBarItem({ item }) {
 
   //default link
   return (
-    <a href={item.path} key={item.path} className="nav__link text--uppercase">
+    <a href={item.path} key={item.path} className={styles.nav__link}>
       {item.name}
     </a>
   );
@@ -63,16 +46,20 @@ function NavBarItem({ item }) {
 
 export default function NavigationBar() {
   const [isOpen, setOpen] = useState(false);
-  console.log(isOpen);
+  const linksClass = classNames(styles.nav__links, {
+    [styles.opened]: isOpen,
+  });
+
+  //console.log(LINKS_DATA);
   return (
-    <nav>
-      <div className="nav__logo">
+    <nav className={styles.nav}>
+      <div className={styles.nav__logo}>
         <a href="/">
           <img src={logo} alt="Logo" />
         </a>
       </div>
       <div
-        className="nav__toggler"
+        className={styles.nav__toggler}
         onClick={() => {
           setOpen(!isOpen);
         }}
@@ -81,7 +68,7 @@ export default function NavigationBar() {
         <span></span>
         <span></span>
       </div>
-      <div className={"nav__links " + `${isOpen ? "opened" : ""}`}>
+      <div className={linksClass}>
         {LINKS_DATA.map((link) => (
           <NavBarItem key={link.path} item={link} />
         ))}

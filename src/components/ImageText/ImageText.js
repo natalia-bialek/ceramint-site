@@ -1,25 +1,23 @@
-import "./ImageText.css";
+import styles from "./ImageText.module.css";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary.js";
+import classNames from "classnames";
 
 export default function ImageText(props) {
-  let classes = "ImageText__container";
-  if (props.isReverse) {
-    classes += " reverse";
-  }
+  let classes = classNames(styles.ImageText__container, {
+    [styles.reverse]: props.isReverse,
+  });
 
   return (
     <div className={classes}>
-      <img className="ImageText__image" src={props.image} alt="" />
-      <div className="ImageText__body">
-        <h4 className="ImageText__header text--uppercase text--bold">
-          {props.header}
-        </h4>
+      <img className={styles.ImageText__image} src={props.image} alt="" />
+      <div className={styles.ImageText__body}>
+        <h4 className={styles.ImageText__header}>{props.header}</h4>
         {props.isCyclically && (
-          <h6 className="ImageText__subheader text--uppercase">Cykliczne</h6>
+          <h6 className={styles.ImageText__subheader}>Cykliczne</h6>
         )}
-        <p className="ImageText__text">{props.text}</p>
+        <p className={styles.ImageText__text}>{props.text}</p>
         {Object.keys(props.additionalInfo ?? {}).map((key) => (
-          <p className="ImageText__text">
+          <p className={styles.ImageText__text}>
             <span className="text--bold">{key}:</span>
             {props.additionalInfo[key]}
           </p>

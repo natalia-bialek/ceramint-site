@@ -13,3 +13,13 @@
 .page__content {
   margin: 2rem 0;
 }
+
+.legal__header {
+  text-align: center;
+  margin-top: 26px;
+  margin-bottom: 20px;
+}
+
+.legal__link {
+  color: #3eb489;
+}

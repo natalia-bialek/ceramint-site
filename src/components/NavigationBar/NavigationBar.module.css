@@ -1,10 +1,12 @@
-nav {
+.nav {
   background-color: #f4f4f4;
   display: flex;
   position: relative;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  min-height: 100px;
+  max-height: 200px;
+  max-width: 1500px;
 }
 
 .nav__logo {
@@ -36,7 +38,6 @@ nav {
   border-radius: 10px;
 }
 
-
 .nav__links {
   display: flex;
   visibility: hidden;
@@ -53,12 +54,12 @@ nav {
 }
 
 .opened {
-  visibility: visible !important; 
+  visibility: visible !important;
   opacity: 1 !important;
 }
 
-
 .nav__link {
+  composes: text--uppercase from global;
   width: fit-content;
   margin: 8px;
   text-align: center;
@@ -86,13 +87,11 @@ nav {
   width: 100%;
 }
 
-
 @media screen and (min-width: 768px) {
-
-
-  nav {
+  .nav {
     justify-content: flex-start;
     margin: auto;
+    width: 100%;
   }
 
   .nav__toggler {
@@ -109,7 +108,7 @@ nav {
     max-width: 700px;
     margin-left: 5%;
   }
-  
+
   .dropdown {
     margin: 8px;
   }
@@ -129,10 +128,10 @@ nav {
     border-radius: 10px;
   }
 
-  .nav__link:hover, .dropdown__item:hover,
-  .nav__link:focus, .dropdown__item:focus {
-  border-color: #3EB489;
+  .nav__link:hover,
+  .dropdown__item:hover,
+  .nav__link:focus,
+  .dropdown__item:focus {
+    border-color: #3eb489;
+  }
 }
-}
-
-

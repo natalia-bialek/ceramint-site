@@ -18,11 +18,13 @@
 }
 
 .ImageText__body {
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   max-width: 600px;
 }
 
 .ImageText__header {
+  composes: text--uppercase from global;
+  composes: text--bold from global;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
@@ -32,16 +34,17 @@
 }
 
 .ImageText__subheader {
+  composes: text--uppercase from global;
   display: inline-block;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
-  margin-top: 5px;
+  margin: 5px;
   color: #474747;
 }
 
 .ImageText__text {
-  margin-top: 8px;
+  margin-top: 15px;
 }
 
 .ImageText__body span {
@@ -58,8 +61,8 @@
   box-shadow: -1rem 1rem #3eb489;
 }
 
-.ImageText__container .button--primary {
-  margin: 10px auto 0 auto;
+.ImageText__container a {
+  margin: 15px auto auto auto;
 }
 
 @media screen and (min-width: 1024px) {
@@ -100,8 +103,8 @@
     margin-right: 1rem;
   }
 
-  .ImageText__container .button--primary {
-    margin-right: 20px;
-    margin-left: auto;
+  .ImageText__container a {
+    margin-top: 30px;
+    margin-right: 15px;
   }
 }

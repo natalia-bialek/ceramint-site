@@ -1,15 +1,11 @@
 import Page from "../components/Page/Page";
+import styles from "../components/Page/Page.module.css";
 export default function Regulamin() {
-  const headerStyle = {
-    textAlign: "center",
-    marginTop: "26px",
-    marginBottom: "20px",
-  };
-
   return (
     <>
       <Page title="Regulamin">
-        <h2 style={headerStyle}>Witamy w Ceramint!</h2>
+        <a href="/">Powrót na stronę główną</a>
+        <h2 className={styles.legal__header}>Witamy w Ceramint!</h2>
 
         <p>
           Niniejszy regulamin okre&#347;la zasady korzystania ze Strony
@@ -375,6 +371,8 @@ export default function Regulamin() {
           nieodp&#322;atnie, nie ponosimy odpowiedzialno&#347;ci za powstanie
           jakichkolwiek strat lub szk&oacute;d o dowolnym charakterze.
         </p>
+        <br />
+        <a href="/">Powrót na stronę główną</a>
       </Page>
     </>
   );

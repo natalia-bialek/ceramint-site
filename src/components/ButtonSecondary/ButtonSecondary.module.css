@@ -1,0 +1,12 @@
+.button-secondary {
+  composes: text--uppercase from global;
+  composes: text--bold from global;
+  composes: button from global;
+  margin: 15px auto 0 auto;
+  border: 1px solid #474747;
+  transition: color 200ms ease-in-out;
+}
+
+.button-secondary:hover {
+  color: #3eb489;
+}

@@ -1,0 +1,25 @@
+.button-primary {
+  composes: text--uppercase from global;
+  composes: text--bold from global;
+  composes: button from global;
+  background-color: #202020;
+  color: #f4f4f4;
+  outline: none;
+  border: none;
+}
+
+.button-primary:hover {
+  background-color: #3eb489;
+  color: #f4f4f4;
+}
+
+.button-primary:focus-visible {
+  background-color: white;
+  color: #202020;
+  border: 2.5px solid blue;
+  transition: background-color 0ms;
+  -webkit-transition: background-color 0ms;
+  -moz-transition: background-color 0ms;
+  -ms-transition: background-color 0ms;
+  -o-transition: background-color 0ms;
+}

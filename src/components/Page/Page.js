@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./Page.css";
+import styles from "./Page.module.css";
 
 export default function Page(props) {
   useEffect(() => {
@@ -8,12 +8,10 @@ export default function Page(props) {
 
   return (
     <>
-      <div className="page__title">
+      <div className={styles.page__title}>
         <h1>{props.title}</h1>
       </div>
-      <div className="page__content">
-        {props.children}
-      </div>
+      <div className={styles.page__content}>{props.children}</div>
     </>
-  )
+  );
 }

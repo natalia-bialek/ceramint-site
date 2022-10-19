@@ -1,44 +1,66 @@
-import "./Footer.css";
+import styles from "./Footer.module.css";
+import classNames from "classnames";
 
 export default function Footer() {
   return (
-    <div className="footer">
-      <div className="footer__section">
-        <div className="footer__row">
+    <div className={styles.footer}>
+      <div className={styles.footer__section}>
+        <div className={styles.footer__row}>
           <div>
-            <p className="footer__p text--bold">Ceramint Polska</p>
-            <p className="footer__p">ul. Warszawska 60</p>
-            <p className="footer__p">15-960, Białystok</p>
+            <p
+              className={classNames(
+                styles.footer__p,
+                styles["footer__p--bold"]
+              )}
+            >
+              Ceramint Polska
+            </p>
+            <p className={styles.footer__p}>ul. Warszawska 60</p>
+            <p className={styles.footer__p}>15-960, Białystok</p>
           </div>
           <div>
-            <p className="footer__p text--bold">Godziny otwarcia:</p>
-            <p className="footer__p">Pn-pt: 9:00 - 19:00</p>
-            <p className="footer__p">Sob: 12:00 - 16:00</p>
+            <p
+              className={classNames(
+                styles.footer__p,
+                styles["footer__p--bold"]
+              )}
+            >
+              Godziny otwarcia:
+            </p>
+            <p className={styles.footer__p}>Pn-pt: 9:00 - 19:00</p>
+            <p className={styles.footer__p}>Sob: 12:00 - 16:00</p>
           </div>
         </div>
-        <div className="footer__row">
+        <div className={styles.footer__row}>
           <div>
-            <p className="footer__p text--bold">E-mail:</p>
-            <a className="footer__p" href="mailto:kontakt@ceramint.pl">
+            <p
+              className={classNames(
+                styles.footer__p,
+                styles["footer__p--bold"]
+              )}
+            >
+              E-mail:
+            </p>
+            <a className={styles.footer__p} href="mailto:kontakt@ceramint.pl">
               kontakt@ceramint.pl
             </a>
           </div>
           <div>
-            <a className="footer__link" href="/kontakt">
+            <a className={styles.footer__link} href="/kontakt">
               Kontakt
             </a>
             <br />
-            <a className="footer__link" href="/regulamin">
+            <a className={styles.footer__link} href="/regulamin">
               Regulamin
             </a>
             <br />
-            <a className="footer__link" href="/polityka-prywatnosci">
+            <a className={styles.footer__link} href="/polityka-prywatnosci">
               Polityka prywatności
             </a>
           </div>
         </div>
       </div>
-      <div className="footer__section--small">
+      <div className={styles["footer__section--small"]}>
         <p>® 2022 Wszelkie prawa zastrzeżone</p>
       </div>
     </div>
