@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/natalia-bialek/ceramint-site/static/css/main.474e85b0.css",
+    "main.js": "/natalia-bialek/ceramint-site/static/js/main.bab16044.js",
+    "static/media/warsztaty2.jpg": "/natalia-bialek/ceramint-site/static/media/warsztaty2.47166eadc9ffc49d68dd.jpg",
+    "static/media/news1.jpg": "/natalia-bialek/ceramint-site/static/media/news1.1c02443e7839fbf34e6f.jpg",
+    "static/media/warsztaty1.jpg": "/natalia-bialek/ceramint-site/static/media/warsztaty1.1c02443e7839fbf34e6f.jpg",
+    "static/media/logo.png": "/natalia-bialek/ceramint-site/static/media/logo.78d5fceb399b57b368dc.png",
+    "index.html": "/natalia-bialek/ceramint-site/index.html",
+    "main.474e85b0.css.map": "/natalia-bialek/ceramint-site/static/css/main.474e85b0.css.map",
+    "main.bab16044.js.map": "/natalia-bialek/ceramint-site/static/js/main.bab16044.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.474e85b0.css",
+    "static/js/main.bab16044.js"
+  ]
+}
