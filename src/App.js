@@ -16,11 +16,7 @@ function App() {
       <NavigationBar />
       <main>
         <Routes>
-          <Route
-            path="/"
-            exact
-            element={<Aktualnosci title="Aktualności | Ceramint" />}
-          />
+          <Route path="/" exact element={<Aktualnosci />} />
           <Route path="/warsztaty" element={<Warsztaty />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route
