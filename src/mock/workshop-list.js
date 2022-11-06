@@ -13,7 +13,7 @@ const WORKSHOP_DATA = [
       "Koszt udziału": "100zł od osoby za 4 spotkania",
     },
     button: "Zapisz się teraz!",
-    buttonLink: "/kontakt",
+    buttonLink: "/ceramint-site/#/kontakt",
   },
   {
     isReverse: true,
