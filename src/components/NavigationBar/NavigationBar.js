@@ -54,7 +54,7 @@ export default function NavigationBar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.nav__logo}>
-        <a href="/">
+        <a href="/ceramint-site">
           <img src={logo} alt="Logo" />
         </a>
       </div>
