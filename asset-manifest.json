@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ceramint-site/static/css/main.474e85b0.css",
-    "main.js": "/ceramint-site/static/js/main.19e18788.js",
+    "main.js": "/ceramint-site/static/js/main.88283d3c.js",
     "static/media/warsztaty2.jpg": "/ceramint-site/static/media/warsztaty2.47166eadc9ffc49d68dd.jpg",
     "static/media/news1.jpg": "/ceramint-site/static/media/news1.1c02443e7839fbf34e6f.jpg",
     "static/media/warsztaty1.jpg": "/ceramint-site/static/media/warsztaty1.1c02443e7839fbf34e6f.jpg",
     "static/media/logo.png": "/ceramint-site/static/media/logo.78d5fceb399b57b368dc.png",
     "index.html": "/ceramint-site/index.html",
     "main.474e85b0.css.map": "/ceramint-site/static/css/main.474e85b0.css.map",
-    "main.19e18788.js.map": "/ceramint-site/static/js/main.19e18788.js.map"
+    "main.88283d3c.js.map": "/ceramint-site/static/js/main.88283d3c.js.map"
   },
   "entrypoints": [
     "static/css/main.474e85b0.css",
-    "static/js/main.19e18788.js"
+    "static/js/main.88283d3c.js"
   ]
 }
