@@ -46,15 +46,15 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a className={styles.footer__link} href="/kontakt">
+            <a className={styles.footer__link} href="/#/kontakt">
               Kontakt
             </a>
             <br />
-            <a className={styles.footer__link} href="/regulamin">
+            <a className={styles.footer__link} href="/#/regulamin">
               Regulamin
             </a>
             <br />
-            <a className={styles.footer__link} href="/polityka-prywatnosci">
+            <a className={styles.footer__link} href="/#/polityka-prywatnosci">
               Polityka prywatności
             </a>
           </div>

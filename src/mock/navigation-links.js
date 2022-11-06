@@ -1,11 +1,11 @@
 const LINKS_DATA = [
   {
     name: "Aktualności",
-    path: "/",
+    path: "/ceramint-site",
   },
   {
     name: "Warsztaty",
-    path: "/warsztaty",
+    path: "/#/warsztaty",
   },
   {
     name: "Sklep",
@@ -13,7 +13,7 @@ const LINKS_DATA = [
   },
   {
     name: "Kontakt",
-    path: "/kontakt",
+    path: "/#/kontakt",
   },
 ];
 
